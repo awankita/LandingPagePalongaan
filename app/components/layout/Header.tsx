@@ -11,7 +11,7 @@ export default function Header() {
         <header className="bg-white shadow-md fixed top-0 left-0 w-full z-50">
             <div className="grid grid-cols-3 items-center px-4 py-3 w-full">
                 {/* Kiri: Logo */}
-                <div className="justify-self-start text-xl font-bold text-green-800">
+                <div className="justify-self-start text-xl font-bold text-[#252524]">
                     Palongaan.go.id
                 </div>
 
