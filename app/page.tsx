@@ -1,12 +1,24 @@
 
-export default function Home() {
-  return (
-    <>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <p className="mt-4 text-lg">
-          This is a simple Next.js application.
-        </p>
-      </main>
-    </>
-  );
+import Header from "@/app/components/layout/Header";
+import HeroSection from "@/app/components/hero/HeroSection";
+import TentangSection from "@/app/components/tentang/TentangSection";
+import AgendaSection from "@/app/components/agenda/AgendaSection";
+import PetaSection from "@/app/components/peta/PetaSection";
+import CCTVSection from "@/app/components/cctv/CCTVSection";
+import Footer from "@/app/components/layout/Footer";
+
+export default function HomePage() {
+    return (
+        <>
+            <Header />
+            <main>
+                <HeroSection />
+                <TentangSection />
+                <AgendaSection />
+                <PetaSection />
+                <CCTVSection />
+            </main>
+            <Footer />
+        </>
+    );
 }
