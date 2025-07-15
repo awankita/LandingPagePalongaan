@@ -8,7 +8,7 @@ export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <header className="bg-white shadow-md fixed top-0 left-0 w-full z-50">
+        <header className="bg-[#fafafa] fixed top-0 left-0 w-full z-50">
             <div className="grid grid-cols-3 items-center px-4 py-3 w-full">
                 {/* Kiri: Logo */}
                 <div className="justify-self-start text-xl font-bold text-[#252524]">
@@ -16,7 +16,7 @@ export default function Header() {
                 </div>
 
                 {/* Tengah: Menu (desktop only) */}
-                <nav className="justify-self-center hidden md:flex gap-6 text-sm font-medium">
+                <nav className="justify-self-center hidden md:flex gap-6 text-sm text-[#252524] font-normal">
                     <Link href="#tentang" className="hover:text-green-600 transition">Tentang</Link>
                     <Link href="#agenda" className="hover:text-green-600 transition">Agenda</Link>
                     <Link href="#peta" className="hover:text-green-600 transition">Peta</Link>
