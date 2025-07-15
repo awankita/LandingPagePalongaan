@@ -11,23 +11,23 @@ export default function AgendaSection() {
             <div className="border-red-500 border-2 flex flex-wrap justify-center gap-6 md:px-5">
                 <div className="w-full flex flex-row justify-center gap-10">
                     {/* Card 1 */}
-                    <div className="border-red-500 border-2 min-w-[300px] max-w-[600px] w-full h-[300px] bg-gray-100 rounded-lg shadow-md">
+                    <div className="border-red-500 border-2 min-w-[300px] max-w-[600px] w-full h-[350px] bg-gray-100 rounded-lg shadow-md">
                         <div
-                            className="bg-cover bg-center h-[300px] rounded-xl shadow-lg flex flex-col items-center justify-center text-white font-medium p-6"
+                            className="bg-cover bg-center h-[350px] rounded-xl shadow-lg flex flex-col items-center justify-center text-white font-medium p-6"
                             style={{ backgroundImage: "url('agendaPic.png')" }}></div>
                     </div>
 
                     {/* Card 2 */}
-                    <div className="border-red-500 border-2 min-w-[300px] max-w-[600px] w-full h-[300px] bg-gray-100 rounded-lg shadow-md">
+                    <div className="border-red-500 border-2 min-w-[300px] max-w-[600px] w-full h-[350px] bg-gray-100 rounded-lg shadow-md">
                         <div
-                            className="bg-cover bg-center h-[300px] rounded-xl shadow-lg flex flex-col items-center justify-center text-white font-medium p-6"
+                            className="bg-cover bg-center h-[350px] rounded-xl shadow-lg flex flex-col items-center justify-center text-white font-medium p-6"
                             style={{ backgroundImage: "url('agendaPic.png')" }}></div>
                     </div>
 
                     {/* Card 3 */}
-                    <div className="border-red-500 border-2 min-w-[300px] max-w-[600px] w-full h-[300px] bg-gray-100 rounded-lg shadow-md">
+                    <div className="border-red-500 border-2 min-w-[300px] max-w-[600px] w-full h-[350px] bg-gray-100 rounded-lg shadow-md">
                         <div
-                            className="bg-cover bg-center h-[300px] rounded-xl shadow-lg flex flex-col items-center justify-center text-white font-medium p-6"
+                            className="bg-cover bg-center h-[350px] rounded-xl shadow-lg flex flex-col items-center justify-center text-white font-medium p-6"
                             style={{ backgroundImage: "url('agendaPic.png')" }}></div>
                     </div>
                 </div>
