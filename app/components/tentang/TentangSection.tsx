@@ -8,11 +8,11 @@ export default function TentangSection() {
                 {/* Card Visi */}
                 <div className="flex-1 min-w-[90vw] md:min-w-[300px] max-w-[1050px] w-full">
                     <div
-                        className="h-[340px] md:h-[528px] bg-cover bg-center rounded-xl shadow-lg flex flex-col items-center justify-center text-white font-medium p-4 md:p-6"
+                        className="border-red-500 border-2 h-[340px] md:h-[528px] bg-cover bg-center rounded-xl shadow-lg flex flex-col items-center justify-center text-white font-medium p-4 md:p-6"
                         style={{ backgroundImage: "url('aboutCardResized.png')" }}
                     >
                         <h2 className="text-3xl md:text-5xl font-bold text-[#CDA02A]">Visi</h2>
-                        <p className="mt-4 md:mt-6 text-lg md:text-2xl font-light leading-relaxed mx-2 md:mx-20 text-center">
+                        <p className="mt-4 md:mt-6 text-md md:text-2xl font-light leading-relaxed mx-2 md:mx-20 text-center">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus  blandit neque, ac commodo risus tempor at. Maecenas eu augue rhoncus,  bibendum ex pretium, bibendum turpis. Fusce vitae dolor egestas, rhoncus magna tempor, commodo eros. Cras in cursus dui. Integer blandit elit a  auctor lobortis.
                         </p>
                     </div>
@@ -25,7 +25,7 @@ export default function TentangSection() {
                         style={{ backgroundImage: "url('aboutCardResized.png')" }}
                     >
                         <h2 className="text-3xl md:text-5xl font-bold text-[#CDA02A]">Misi</h2>
-                        <p className="mt-4 md:mt-6 text-lg md:text-2xl font-light leading-relaxed mx-2 md:mx-20 text-center">
+                        <p className="mt-4 md:mt-6 text-md md:text-2xl font-light leading-relaxed mx-2 md:mx-20 text-center">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus  blandit neque, ac commodo risus tempor at. Maecenas eu augue rhoncus,  bibendum ex pretium, bibendum turpis. Fusce vitae dolor egestas, rhoncus magna tempor, commodo eros. Cras in cursus dui. Integer blandit elit a  auctor lobortis.
                         </p>
                     </div>
