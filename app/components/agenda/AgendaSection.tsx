@@ -21,7 +21,7 @@ export default function AgendaSection() {
                 <h4>Agenda Acara Kegiatan Desa Palongaan</h4>
             </div>
 
-            <div className="px-2 md:px-0 w-full mx-auto">
+            <div className="px-2 md:px-0 mx-5 max-w-[100vw]">
                 <Swiper
                     spaceBetween={24}
                     slidesPerView={1}
