@@ -1,10 +1,10 @@
 export default function CCTVSection() {
     return (
         <>
-            <div className="text-center mt-20 font-bold text-4xl text-[#252524]">
+            <div className="text-center mt-10 md:mt-20 mb-6 font-bold text-2xl md:text-4xl text-[#252524]">
                 <h1 id="cctv">CCTV Langsung</h1>
             </div>
-            <div className="text-center mx-60 mt-5 mb-10 font-medium text-xl text-[#585858]">
+            <div className="text-center mx-4 md:mx-60 mt-3 md:mt-5 mb-6 md:mb-10 font-medium text-base md:text-xl text-[#585858]">
                 <h4>Menyediakan informasi lokasi CCTV bertujuan untuk meningkatkan keamanan dan kenyamanan masyarakat. Fitur ini membantu memantau aktivitas, memungkinkan pengguna melihat peta interaktif, dan informasi detailnya untuk pemantauan yang lebih efektif.</h4>
             </div>
 
