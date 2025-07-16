@@ -16,11 +16,11 @@ export default function Header() {
                 </div>
 
                 {/* Tengah: Menu (desktop only) */}
-                <nav className="justify-self-center hidden md:flex gap-6 text-sm text-[#252524] font-normal">
-                    <Link href="#tentang" className="hover:text-green-600 transition">Tentang</Link>
-                    <Link href="#agenda" className="hover:text-green-600 transition">Agenda</Link>
-                    <Link href="#peta" className="hover:text-green-600 transition">Peta</Link>
-                    <Link href="#cctv" className="hover:text-green-600 transition">CCTV</Link>
+                <nav className="justify-self-center hidden md:flex gap-6 text-sm text-[#252524] font-medium">
+                    <Link href="#tentang" className="hover:text-green-700 transition">Tentang</Link>
+                    <Link href="#agenda" className="hover:text-green-700 transition">Agenda</Link>
+                    <Link href="#peta" className="hover:text-green-700 transition">Peta</Link>
+                    <Link href="#cctv" className="hover:text-green-700 transition">CCTV</Link>
                 </nav>
 
                 {/* Tengah dummy (mobile) */}

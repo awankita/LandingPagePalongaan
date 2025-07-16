@@ -6,6 +6,7 @@ import AgendaSection from "@/app/components/agenda/AgendaSection";
 import PetaSection from "@/app/components/peta/PetaSection";
 import CCTVSection from "@/app/components/cctv/CCTVSection";
 import Footer from "@/app/components/layout/Footer";
+import BackToTop from "@/app/components/layout/BackToTop";
 
 export default function HomePage() {
     return (
@@ -17,6 +18,7 @@ export default function HomePage() {
                 <AgendaSection />
                 <PetaSection />
                 <CCTVSection />
+                <BackToTop />
             </main>
             <Footer />
         </>

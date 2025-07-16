@@ -2,13 +2,13 @@ export default function TentangSection() {
     return (
         <>
             <div className="text-center mt-20 mb-10 font-bold text-4xl text-[#252524]">
-                <h1>Tentang Desa</h1>
+                <h1 id="tentang">Tentang Desa</h1>
             </div>
-            <div className=" border-red-500 border-2 flex flex-wrap justify-center gap-6 md:px-5">
+            <div className=" flex flex-wrap justify-center gap-6 md:px-5">
                 {/* Card Visi */}
                 <div className="flex-1 min-w-[300px] max-w-[1050px] w-full">
                     <div
-                        className="border-red-500 border-2 h-[528px] bg-cover bg-center rounded-xl shadow-lg flex flex-col items-center justify-center text-white font-medium p-6"
+                        className="h-[528px] bg-cover bg-center rounded-xl shadow-lg flex flex-col items-center justify-center text-white font-medium p-6"
                         style={{ backgroundImage: "url('aboutCardResized.png')" }}
                     >
                         <h2 className="text-5xl font-bold text-[#CDA02A]">Visi</h2>
@@ -21,7 +21,7 @@ export default function TentangSection() {
                 {/* Card Misi */}
                 <div className="flex-1 min-w-[300px] max-w-[1050px] w-full">
                     <div
-                        className="border-red-500 border-2 h-[528px] bg-cover bg-center rounded-xl shadow-lg flex flex-col items-center justify-center text-white font-medium p-6"
+                        className="h-[528px] bg-cover bg-center rounded-xl shadow-lg flex flex-col items-center justify-center text-white font-medium p-6"
                         style={{ backgroundImage: "url('aboutCardResized.png')" }}
                     >
                         <h2 className="text-5xl font-bold text-[#CDA02A]">Misi</h2>

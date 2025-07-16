@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function HeroSection() {
     return (
         <>
-          <div className='relative overflow-hidden h-[85vh] border-red-500 border-2 rounded-[49px] mt-20 mx-5 z-0'>
+          <div className='relative overflow-hidden h-[85vh] rounded-[49px] mt-20 mx-5 z-0'>
               <Image
                   src="/heroBanner.png"
                   alt="Hero Banner"
@@ -13,10 +13,10 @@ export default function HeroSection() {
                   objectFit="cover"
               />
               <div className="mx-20 absolute top-2/7 z-10">
-                  <h1 className="border-red-500 border-2 text-9xl md:text-8xl font-semibold text-white drop-shadow-lg">
+                  <h1 className="text-9xl md:text-8xl font-semibold text-white drop-shadow-lg">
                       Selamat Datang
                   </h1>
-                  <p className="border-red-500 border-2 mt-4 text-lg md:text-3xl text-white drop-shadow-lg">
+                  <p className="mt-4 text-lg md:text-3xl text-white drop-shadow-lg">
                       Portal Informasi Desa Palongaan
                   </p>
 
