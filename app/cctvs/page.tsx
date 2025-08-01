@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import cctvs from "./cctvs";
+import Link from "next/link";
 
 
 export default function CctvsPage() {
@@ -17,9 +18,9 @@ export default function CctvsPage() {
       <nav className="flex items-center justify-between px-6 py-4 shadow-md">
         <h1 className="text-2xl font-bold">Rinascita.</h1>
         <div className="space-x-6 hidden md:flex">
-          <a href="#">Beranda</a>
-          <a href="#">FAQ</a>
-          <a href="#">CCTV</a>
+          <Link href="/">Beranda</Link>
+          <Link href="/">FAQ</Link>
+          <Link href="/">CCTV</Link>
         </div>
         <button className="md:hidden">☰</button>
       </nav>

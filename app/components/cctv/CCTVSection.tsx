@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function CCTVSection() {
   return (
     <>
@@ -13,7 +15,8 @@ export default function CCTVSection() {
         </h4>
       </div>
 
-      <button
+      <Link
+        href="/cctvs"
         className="mx-auto flex items-center justify-center mt-10 px-6 py-3 font-semibold text-white rounded-[24px] transition duration-300 bg-gradient-to-r from-[#559334] to-[#47820C] hover:brightness-125"
         style={{
           height: "60px",
@@ -21,7 +24,7 @@ export default function CCTVSection() {
         }}
       >
         Tonton Sekarang
-      </button>
+      </Link>
     </>
   );
 }
