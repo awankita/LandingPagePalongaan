@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -115,7 +115,9 @@ export default function Footer() {
                 <p className="leading-tight">Desa Palongaan, Kecamatan...</p>
               </div>
               <div className="text-[10px] sm:text-xs md:text-sm lg:text-base text-gray-200">
-                <p className="font-medium text-white mb-0.5 sm:mb-1">Telepon:</p>
+                <p className="font-medium text-white mb-0.5 sm:mb-1">
+                  Telepon:
+                </p>
                 <p>(021) 123-4567</p>
               </div>
               <div className="text-[10px] sm:text-xs md:text-sm lg:text-base text-gray-200">
@@ -130,7 +132,9 @@ export default function Footer() {
         <div className="border-t border-gray-600 mt-8 pt-6">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
             <div className="text-center sm:text-left">
-              <p className="text-sm sm:text-base text-gray-200">© 2024 Desa Palongaan. Semua hak dilindungi.</p>
+              <p className="text-sm sm:text-base text-gray-200">
+                © 2024 Desa Palongaan. Semua hak dilindungi.
+              </p>
             </div>
             <div className="flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6">
               <Link
@@ -156,5 +160,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
