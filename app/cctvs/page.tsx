@@ -33,11 +33,9 @@ export default function CctvsPage() {
     <div className="min-h-screen bg-white">
       {/* Navbar */}
       <nav className="flex items-center justify-between px-6 py-4 shadow-md">
-        <h1 className="text-2xl font-bold">Rinascita.</h1>
+        <h1 className="text-2xl font-bold">Palongaan.go.id</h1>
         <div className="space-x-6 hidden md:flex">
           <Link href="/">Beranda</Link>
-          <Link href="/">FAQ</Link>
-          <Link href="/">CCTV</Link>
         </div>
         <button className="md:hidden">☰</button>
       </nav>
