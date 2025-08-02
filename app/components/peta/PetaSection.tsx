@@ -26,7 +26,9 @@ export default function PetaSection() {
         </div>
       </div>
 
-      <button
+      <a
+        href="/map.png"
+        download
         className="mx-auto flex items-center justify-center mt-10 px-6 py-3 font-semibold text-white rounded-[24px] transition duration-300 bg-gradient-to-r from-[#559334] to-[#47820C] hover:brightness-125"
         style={{
           height: "60px",
@@ -34,7 +36,7 @@ export default function PetaSection() {
         }}
       >
         Download PDF Peta
-      </button>
+      </a>
     </>
   );
 }
