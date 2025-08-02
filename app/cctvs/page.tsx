@@ -41,9 +41,9 @@ export default function CctvsPage() {
       </nav>
 
       {/* Main Content */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
         {/* Left Section - Livestream */}
-        <div className="bg-[#203612] p-4 rounded-2xl border border-blue-400">
+        <div className="md:col-span-2 bg-[#2E3B32] p-4 rounded-2xl">
           <h2 className="text-white font-bold mb-2">Livestream</h2>
           <div className="aspect-video bg-black rounded-lg overflow-hidden mb-4">
             <video
@@ -59,23 +59,22 @@ export default function CctvsPage() {
             <p>{selectedCctv.address}</p>
           </div>
 
-          <div className="bg-[#3B4435] p-4 rounded-xl text-white text-sm">
+          <div className="bg-[#546654] p-4 rounded-xl text-white text-sm">
             <h4 className="font-bold mb-2">Detail CCTV:</h4>
             <p>
               Perangkat: {selectedCctv.device} <br />
-              IP Stream: {selectedCctv.ip}
             </p>
           </div>
         </div>
 
         {/* Right Section - List */}
-        <div className="bg-[#203612] p-4 rounded-2xl">
+        <div className="md:col-span-1 bg-[#35443B] p-4 rounded-2xl">
           <div className="relative mb-4">
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full p-3 pl-10 rounded-lg bg-transparent border border-white text-white placeholder:text-white"
+              className="w-full p-3 pl-10 rounded-lg bg-[#3C4C45] border border-[#6e816e] text-[#fafafa] placeholder:text-[#fafafa] focus:outline-none focus:ring-0 focus:border-[#90A896] focus:placeholder-transparent"
               placeholder="pencarian lokasi cctv..."
             />
             <span className="absolute left-3 top-1/2 -translate-y-1/2 text-white">
@@ -90,8 +89,8 @@ export default function CctvsPage() {
                 onClick={() => setSelectedCctv(cctv)}
                 className={`flex flex-col p-3 rounded-md cursor-pointer transition ${
                   selectedCctv.name === cctv.name
-                    ? "bg-[#4D5C2C]"
-                    : "hover:bg-[#3C4A1E]"
+                    ? "bg-[#4A5C42]"
+                    : "hover:bg-[#546654]"
                 }`}
               >
                 <span className="font-semibold">{cctv.name}</span>

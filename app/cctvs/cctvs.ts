@@ -3,7 +3,7 @@ const cctvs = [
     name: "CCTV Main Gate",
     address: "123 Main St, City Center",
     device: "Hikvision DS-2CD2143G0-I",
-    ip: "http://localhost:8000/hls/stream.m3u8",
+    ip: "http://10.58.36.216:8000/hls/cam3/stream.m3u8",
   },
   {
     name: "CCTV Parking Lot",
