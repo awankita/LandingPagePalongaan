@@ -34,10 +34,9 @@ export default function CctvsPage() {
       {/* Navbar */}
       <nav className="flex items-center justify-between px-6 py-4 shadow-md">
         <h1 className="text-2xl font-bold">Palongaan.go.id</h1>
-        <div className="space-x-6 hidden md:flex">
+        <div className="space-x-6 md:flex">
           <Link href="/">Beranda</Link>
         </div>
-        <button className="md:hidden">☰</button>
       </nav>
 
       {/* Main Content */}
