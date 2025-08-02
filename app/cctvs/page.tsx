@@ -1,26 +1,41 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import cctvs from "./cctvs";
 import Link from "next/link";
-
+import Hls from "hls.js";
 
 export default function CctvsPage() {
   const [selectedCctv, setSelectedCctv] = useState(cctvs[0]);
   const [search, setSearch] = useState("");
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   const filteredCctvs = cctvs.filter(cctv =>
-  cctv.name.toLowerCase().includes(search.toLowerCase())
-);
+    cctv.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  useEffect(() => {
+    if (!selectedCctv?.ip || !videoRef.current) return;
+
+    const video = videoRef.current;
+
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(selectedCctv.ip);
+      hls.attachMedia(video);
+      return () => hls.destroy();
+    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      video.src = selectedCctv.ip;
+    }
+  }, [selectedCctv]);
 
   return (
     <div className="min-h-screen bg-white">
       {/* Navbar */}
       <nav className="flex items-center justify-between px-6 py-4 shadow-md">
-        <h1 className="text-2xl font-bold">Rinascita.</h1>
+        <h1 className="text-2xl font-bold">Palongaan.go.id</h1>
         <div className="space-x-6 hidden md:flex">
           <Link href="/">Beranda</Link>
-          <Link href="/">FAQ</Link>
-          <Link href="/">CCTV</Link>
         </div>
         <button className="md:hidden">☰</button>
       </nav>
@@ -31,12 +46,12 @@ export default function CctvsPage() {
         <div className="bg-[#203612] p-4 rounded-2xl border border-blue-400">
           <h2 className="text-white font-bold mb-2">Livestream</h2>
           <div className="aspect-video bg-black rounded-lg overflow-hidden mb-4">
-            <iframe
-              src={selectedCctv.ip}
-              title={selectedCctv.name}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
+            <video
+              ref={videoRef}
               className="w-full h-full object-cover"
+              controls
+              autoPlay
+              muted
             />
           </div>
           <div className="text-white mb-4">
