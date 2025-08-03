@@ -1,18 +1,18 @@
 const cctvs = [
   {
-    name: "CCTV A",
+    name: "CCTV Pertigaan Pura",
     address: "...",
     device: "C01-Awankita",
     ip: "https://cctv.awankita.id/hls/cam1/stream.m3u8",
   },
   {
-    name: "CCTV B",
+    name: "CCTV Tugu Masuk Palongaan",
     address: "....",
     device: "C02-Awankita",
     ip: "https://cctv.awankita.id/hls/cam2/stream.m3u8",
   },
   {
-    name: "CCTV C",
+    name: "CCTV Ujung Lorong 5",
     address: "....",
     device: "C03-Awankita",
     ip: "https://cctv.awankita.id/hls/cam3/stream.m3u8",

@@ -48,7 +48,7 @@ export default function CctvsPage() {
             <video
               ref={videoRef}
               className="w-full h-full object-cover"
-              controls
+              preload="true"
               autoPlay
               muted
             />
