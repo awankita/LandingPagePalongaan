@@ -9,8 +9,31 @@ export default function CctvsPage() {
   const [selectedCctv, setSelectedCctv] = useState(cctvs[0]);
   const [search, setSearch] = useState("");
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [showControls, setShowControls] = useState(true);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const filteredCctvs = cctvs.filter(cctv =>
+  const handleMouseMove = () => {
+    setShowControls(true);
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => {
+      setShowControls(false);
+    }, 2000);
+  };
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.addEventListener("mousemove", handleMouseMove);
+    video.addEventListener("touchstart", handleMouseMove);
+
+    return () => {
+      video.removeEventListener("mousemove", handleMouseMove);
+      video.removeEventListener("touchstart", handleMouseMove);
+    };
+  }, []);
+
+  const filteredCctvs = cctvs.filter((cctv) =>
     cctv.name.toLowerCase().includes(search.toLowerCase())
   );
 
@@ -44,15 +67,22 @@ export default function CctvsPage() {
         {/* Left Section - Livestream */}
         <div className="md:col-span-2 bg-[#2E3B32] p-4 rounded-2xl">
           <h2 className="text-white font-bold mb-2">Livestream</h2>
-          <div className="aspect-video bg-black rounded-lg overflow-hidden mb-4">
+          <div className="relative aspect-video bg-black rounded-lg overflow-hidden mb-4">
             <video
               ref={videoRef}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover custom-video"
+              controls={showControls}
               preload="true"
               autoPlay
               muted
             />
+
+            {/* 🔴 LIVE Label */}
+            <div className="absolute top-2 right-2 text-white text-xs font-bold px-2 py-1 rounded-md shadow-md">
+              🔴 LIVE
+            </div>
           </div>
+
           <div className="text-white mb-4">
             <h3 className="font-bold">{selectedCctv.name}</h3>
             <p>{selectedCctv.address}</p>

@@ -16,3 +16,12 @@ body {
   color: var(--foreground);
   font-family: system-ui, sans-serif;
 }
+
+
+/* Tambahkan di global CSS (misalnya styles.css) */
+.custom-video::-webkit-media-controls-play-button,
+.custom-video::-webkit-media-controls-timeline,
+.custom-video::-webkit-media-controls-current-time-display,
+.custom-video::-webkit-media-controls-time-remaining-display{
+  display: none !important;
+}
