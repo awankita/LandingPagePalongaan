@@ -15,11 +15,7 @@ export default function TentangSection() {
               Visi
             </h2>
             <p className="mt-4 md:mt-6 text-md md:text-2xl font-light leading-relaxed mx-2 md:mx-20 text-center">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-              tempus blandit neque, ac commodo risus tempor at. Maecenas eu
-              augue rhoncus, bibendum ex pretium, bibendum turpis. Fusce vitae
-              dolor egestas, rhoncus magna tempor, commodo eros. Cras in cursus
-              dui. Integer blandit elit a auctor lobortis.
+              Menjadi desa yang mandiri, sejahtera, dan berwawasan lingkungan dengan masyarakat yang berdaya saing, berbudaya, serta berlandaskan nilai-nilai kebersamaan dan gotong royong.
             </p>
           </div>
         </div>
@@ -34,11 +30,7 @@ export default function TentangSection() {
               Misi
             </h2>
             <p className="mt-4 md:mt-6 text-md md:text-2xl font-light leading-relaxed mx-2 md:mx-20 text-center">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-              tempus blandit neque, ac commodo risus tempor at. Maecenas eu
-              augue rhoncus, bibendum ex pretium, bibendum turpis. Fusce vitae
-              dolor egestas, rhoncus magna tempor, commodo eros. Cras in cursus
-              dui. Integer blandit elit a auctor lobortis.
+              Berkomitmen untuk meningkatkan kualitas sumber daya manusia melalui pendidikan dan pelatihan, serta mendorong pertumbuhan ekonomi berbasis potensi lokal. Budaya dan kearifan lokal dilestarikan sebagai identitas desa. Pemerintahan desa dijalankan secara transparan dan akuntabel, dengan mendorong partisipasi aktif masyarakat. Selain itu, desa juga menjaga kelestarian lingkungan dan mengelola sumber daya alam secara berkelanjutan.
             </p>
           </div>
         </div>
