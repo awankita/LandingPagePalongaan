@@ -2,8 +2,10 @@ import React from "react";
 import Image from "next/image";
 import { Dot, BadgeCheckIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
-interface ArticlePreviewProps {
+interface Article {
+  id:string;
   tagLabel: string;
   writer: string;
   title: string;
@@ -13,15 +15,20 @@ interface ArticlePreviewProps {
   imageSrc: string;
 }
 
-export default function ArticlePreview({
-  tagLabel,
-  writer,
-  title,
-  description,
-  date,
-  readTime,
-  imageSrc,
-}: ArticlePreviewProps) {
+export default function ArticlePreview({ article }: { article: Article }) {
+  if (!article) return null;
+  const 
+  { 
+    id, 
+    tagLabel, 
+    writer, 
+    title, 
+    description, 
+    date, 
+    readTime, 
+    imageSrc 
+  } = article;
+
   return (
     <div className="border-b border-[#adadad] w-[75%] mx-auto flex justify-between gap-4 pb-5 mb-10">
       {/* KIRI */}
@@ -35,9 +42,11 @@ export default function ArticlePreview({
           <span className="font-medium text-foreground">{writer}</span>
         </div>
 
-        <div className="font-bold tracking-tight md:text-[34px] sm:text-2xl leading-tight hover:underline underline-offset-2 line-clamp-2">
-          {title}
-        </div>
+        <Link href={`/articles/${id}`} className="cursor-pointer">
+          <div className="font-bold tracking-tight md:text-[34px] sm:text-2xl leading-tight hover:underline underline-offset-2 line-clamp-2">
+            {title}
+          </div>
+        </Link>
 
         <div className="text-[#585858] text-muted-foreground line-clamp-2">
           {description}

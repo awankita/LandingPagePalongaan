@@ -14,6 +14,7 @@ const agendaCards = [
 ];
 
 interface ArticleData {
+  id: string;
   tagLabel: string;
   writer: string;
   tagColor: string;
@@ -32,7 +33,7 @@ export default function AgendaSection() {
   useEffect(() => {
     fetch(
       "https://maycleansitepu.github.io/articlesPalongaan/articles.json" +
-        `?t=${Date.now()}` // biar gak ke-cache
+        `?t=${Date.now()}` 
     )
       .then((res) => res.json())
       .then((data) => setArticles(data))
@@ -85,7 +86,7 @@ export default function AgendaSection() {
 
       {/* Article Preview */}
       {displayedArticles.map((article, idx) => (
-        <ArticlePreview key={idx} {...article} />
+        <ArticlePreview key={idx} article={article} />
       ))}
 
       {articles.length > 3 && !showAll && (
