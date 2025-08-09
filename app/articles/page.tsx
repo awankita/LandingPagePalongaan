@@ -42,7 +42,7 @@ export default function ArticlesPage() {
         <div className="mt-6 text-center">
           <button
             onClick={() => setVisibleCount(articles.length)}
-            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+            className="mx-auto flex items-center justify-center mt-10 px-6 py-3 font-semibold text-white rounded-[24px] transition duration-300 bg-gradient-to-r from-[#559334] to-[#47820C] hover:brightness-125"
           >
             View More
           </button>

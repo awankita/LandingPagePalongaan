@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import ArticlePreview from "./ArticlePreview";
+import Link from "next/link";
 
 const agendaCards = [
   { id: 1, img: "agendaPic.png" },
@@ -28,7 +29,7 @@ interface ArticleData {
 export default function AgendaSection() {
 
   const [articles, setArticles] = useState<ArticleData[]>([]);
-  const [showAll, setShowAll] = useState(false);
+
 
   useEffect(() => {
     fetch(
@@ -40,7 +41,7 @@ export default function AgendaSection() {
       .catch((err) => console.error("Error fetching articles:", err));
   }, []);
 
-  const displayedArticles = showAll ? articles : articles.slice(0, 3);
+  const displayedArticles = articles;
 
   return (
     <>
@@ -89,16 +90,15 @@ export default function AgendaSection() {
         <ArticlePreview key={idx} article={article} />
       ))}
 
-      {articles.length > 3 && !showAll && (
-        <div className="text-center mt-6">
-          <button
-            onClick={() => setShowAll(true)}
-            className="mx-auto flex items-center justify-center mt-10 px-6 py-3 font-semibold text-white rounded-[24px] transition duration-300 bg-gradient-to-r from-[#559334] to-[#47820C] hover:brightness-125"
-          >
-            View More
-          </button>
-        </div>
-      )}
+      <div className="text-center mt-6">
+        <Link
+          href="/articles"
+          className="w-[250px] h-[60px] mx-auto flex items-center justify-center mt-10 px-6 py-3 font-semibold text-white rounded-[24px] transition duration-300 bg-gradient-to-r from-[#559334] to-[#47820C] hover:brightness-125"
+        >
+          View More
+        </Link>
+      </div>
+
     </>
   );
 }

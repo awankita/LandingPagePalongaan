@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 interface Article {
   id: number;
@@ -32,7 +33,14 @@ export default async function ArticleDetail({ params }: { params: Promise<{ id: 
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
+    <>
+    <nav className="flex items-center justify-between px-6 py-4 shadow-md">
+        <h1 className="text-2xl font-bold">Palongaan.go.id</h1>
+        <div className="space-x-6 md:flex">
+          <Link href="/">Beranda</Link>
+        </div>
+      </nav>
+    <div className="max-w-4xl mx-auto p-6 mt-16">
       <Image
         src={article.imageSrc}
         alt={article.title}
@@ -48,5 +56,6 @@ export default async function ArticleDetail({ params }: { params: Promise<{ id: 
         {article.content}
       </div>
     </div>
+    </>
   );
 }
