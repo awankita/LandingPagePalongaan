@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
 
   images: {
     domains: ["picsum.photos"],
+    remotePatterns: [new URL('https://placehold.co/**')],
   },
 };
 
