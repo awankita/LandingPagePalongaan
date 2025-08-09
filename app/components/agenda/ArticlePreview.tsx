@@ -23,9 +23,9 @@ export default function ArticlePreview({
   imageSrc,
 }: ArticlePreviewProps) {
   return (
-    <div className="border-b border-[#adadad] w-[75%] mx-auto flex justify-between gap-4 items-start pb-5 mb-10">
+    <div className="border-b border-[#adadad] w-[75%] mx-auto flex justify-between gap-4 pb-5 mb-10">
       {/* KIRI */}
-      <div className="flex flex-col gap-4 max-w-[75%]">
+      <div className="flex flex-col justify-between gap-4 max-w-[75%]">
         <div className="flex flex-row gap-2 items-center">
           <Badge className="bg-green-200 text-green-900">
             <BadgeCheckIcon className="mr-1 h-4 w-4" />
