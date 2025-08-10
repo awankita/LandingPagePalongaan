@@ -73,7 +73,9 @@ export default async function ArticleDetail({ params }: { params: { id: string }
           <BlocksRenderer content={article.content} />
         </div>
         <div className="mt-8">
-          <h2 className="text-2xl text-center font-semibold mb-4">Dokumentasi</h2>
+            {article.medias.length > 0 && (
+            <h2 className="text-2xl text-center font-semibold mb-4">Dokumentasi</h2>
+            )}
           <div className="grid grid-cols-2 gap-4">
             {article.medias.map((media, index) => (
               <Image
