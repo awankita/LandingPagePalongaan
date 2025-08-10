@@ -25,34 +25,64 @@ interface Article {
   imageSrc: string;
 }
 
+// Struktur sesuai API Strapi
+interface StrapiArticle {
+  documentId: string | number;
+  taglabel?: string;
+  writer?: string;
+  title?: string;
+  date?: string;
+  readtime?: string;
+  cover?: { url: string };
+  content?: { children?: { text: string }[] }[];
+}
+
+interface StrapiResponse {
+  data: StrapiArticle[];
+}
+
 export default function AgendaSection() {
   const [articles, setArticles] = useState<Article[]>([]);
 
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/articles?populate=*&sort=date:desc&pagination[limit]=3`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data && data.data) {
-          const mappedData: Article[] = data.data.map((item: any) => ({
+    const fetchArticles = async () => {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/articles?populate=*&sort=date:desc&pagination[limit]=3`
+        );
+
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+
+        const data: StrapiResponse = await res.json();
+
+        if (data && Array.isArray(data.data)) {
+          const mappedData: Article[] = data.data.map((item) => ({
             id: String(item.documentId),
             tagLabel: item.taglabel || "",
             writer: item.writer || "",
             title: item.title || "",
             description:
-              item.content?.[0]?.children?.map((c: any) => c.text).join(" ") ||
-              "",
+              item.content?.[0]?.children
+                ?.map((c) => c.text)
+                .join(" ") || "",
             date: item.date || "",
             readTime: item.readtime || "",
             imageSrc: item.cover?.url
-              ? (item.cover.url.startsWith("http")
+              ? item.cover.url.startsWith("http")
                 ? item.cover.url
-                : `${process.env.NEXT_PUBLIC_STRAPI_URL}${item.cover.url}`)
+                : `${process.env.NEXT_PUBLIC_STRAPI_URL}${item.cover.url}`
               : "/loading.png",
           }));
           setArticles(mappedData);
         }
-      })
-      .catch((err) => console.error("Error fetching articles:", err));
+      } catch (err) {
+        console.error("Error fetching articles:", err);
+      }
+    };
+
+    fetchArticles();
   }, []);
 
   return (
