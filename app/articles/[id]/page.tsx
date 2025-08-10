@@ -1,29 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import Link from "next/link";
-
-// --- Type Definitions ---
-interface StrapiMedia {
-  url: string;
-}
-
-interface StrapiArticle {
-  documentId: string;
-  taglabel?: string;
-  writer?: string;
-  title?: string;
-  description?: string;
-  date?: string;
-  readtime?: string;
-  cover?: StrapiMedia;
-  medias?: StrapiMedia[];
-  content?: any; // pakai 'any' di sini karena BlocksRenderer punya struktur kompleks
-}
-
-interface StrapiResponse<T> {
-  data: T;
-}
 
 interface Article {
   id: string;
@@ -38,44 +15,40 @@ interface Article {
   medias: string[];
 }
 
-// --- Helper Function ---
-const getFullUrl = (url: string): string => {
-  return url.startsWith("http")
-    ? url
-    : `${process.env.NEXT_PUBLIC_STRAPI_URL}${url}`;
-};
+export default async function ArticleDetail({ params }: { params: { id: string } }) {
+  const { id } = await params;
 
-// --- Page Component ---
-export default async function ArticleDetail({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const { id } = params;
-
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/articles/${id}?populate=*`,
-    { cache: "no-store" }
-  );
+  const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/articles/${id}?populate=*`, {
+    cache: "no-store"
+  });
 
   if (!res.ok) {
     throw new Error(`Failed to fetch article: ${res.statusText}`);
   }
 
-  const data: StrapiResponse<StrapiArticle> = await res.json();
+  const data = await res.json();
   const item = data.data;
 
   const article: Article = {
     id: item.documentId,
-    tagLabel: item.taglabel ?? "",
-    writer: item.writer ?? "",
-    title: item.title ?? "",
-    description: item.description ?? "",
-    date: item.date ?? "",
-    readTime: item.readtime ?? "",
-    imageSrc: item.cover?.url ? getFullUrl(item.cover.url) : "/loading.png",
-    medias: item.medias?.map((media) => getFullUrl(media.url)) ?? [],
-    content: item.content ?? [],
+    tagLabel: item.taglabel || "",
+    writer: item.writer || "",
+    title: item.title || "",
+    description: item.description || "",
+    date: item.date || "",
+    readTime: item.readtime || "",
+    imageSrc: item.cover?.url
+              ? (item.cover.url.startsWith("http")
+                ? item.cover.url
+                : `${process.env.NEXT_PUBLIC_STRAPI_URL}${item.cover.url}`)
+              : "/loading.png",
+    medias: item.medias?.map((media: { url: string }) =>
+      media.url.startsWith("http")
+        ? media.url
+        : `${process.env.NEXT_PUBLIC_STRAPI_URL}${media.url}`
+    ) || [],
+
+    content: item.content || [],
   };
 
   return (
@@ -100,9 +73,7 @@ export default async function ArticleDetail({
           <BlocksRenderer content={article.content} />
         </div>
         <div className="mt-8">
-          <h2 className="text-2xl text-center font-semibold mb-4">
-            Dokumentasi
-          </h2>
+          <h2 className="text-2xl text-center font-semibold mb-4">Dokumentasi</h2>
           <div className="grid grid-cols-2 gap-4">
             {article.medias.map((media, index) => (
               <Image
