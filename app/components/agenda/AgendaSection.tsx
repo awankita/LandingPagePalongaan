@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -14,11 +14,10 @@ const agendaCards = [
   { id: 3, img: "agendaPic.png" },
 ];
 
-interface ArticleData {
+interface Article {
   id: string;
   tagLabel: string;
   writer: string;
-  tagColor: string;
   title: string;
   description: string;
   date: string;
@@ -27,21 +26,33 @@ interface ArticleData {
 }
 
 export default function AgendaSection() {
-
-  const [articles, setArticles] = useState<ArticleData[]>([]);
-
+  const [articles, setArticles] = useState<Article[]>([]);
 
   useEffect(() => {
-    fetch(
-      "https://maycleansitepu.github.io/articlesPalongaan/articles.json" +
-        `?t=${Date.now()}` 
-    )
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/articles?populate=*&sort=date:desc&pagination[limit]=3`)
       .then((res) => res.json())
-      .then((data) => setArticles(data))
+      .then((data) => {
+        if (data && data.data) {
+          const mappedData: Article[] = data.data.map((item: any) => ({
+            id: String(item.documentId),
+            tagLabel: item.taglabel || "",
+            writer: item.writer || "",
+            title: item.title || "",
+            description:
+              item.content?.[0]?.children?.map((c: any) => c.text).join(" ") ||
+              "",
+            date: item.date || "",
+            readTime: item.readtime || "",
+            imageSrc:
+              item.cover?.url
+                ? `http://localhost:1337${item.cover.url}`
+                : "/loading.png",
+          }));
+          setArticles(mappedData);
+        }
+      })
       .catch((err) => console.error("Error fetching articles:", err));
   }, []);
-
-  const displayedArticles = articles;
 
   return (
     <>
@@ -85,9 +96,8 @@ export default function AgendaSection() {
         </Swiper>
       </div>
 
-      {/* Article Preview */}
-      {displayedArticles.map((article, idx) => (
-        <ArticlePreview key={idx} article={article} />
+      {articles.map((article) => (
+        <ArticlePreview key={article.id} article={article} />
       ))}
 
       <div className="text-center mt-6">
@@ -98,7 +108,6 @@ export default function AgendaSection() {
           View More
         </Link>
       </div>
-
     </>
   );
 }

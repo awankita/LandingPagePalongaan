@@ -65,12 +65,12 @@ export default function ArticlePreview({ article }: { article: Article }) {
         {/* KANAN */}
         <div className="flex items-center justify-center md:justify-end order-1 md:order-2">
           <Image
-            className="rounded-lg w-full sm:w-[300px] h-auto object-cover"
+            className="rounded-lg"
             src={imageSrc}
             alt="Article preview image"
             loading="lazy"
             width={300}
-            height={200}
+            height={150}
           />
         </div>
       </div>
