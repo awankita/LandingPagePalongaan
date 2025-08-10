@@ -14,8 +14,19 @@ const nextConfig: NextConfig = {
         port: '1337',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'certain-strength-ad46524dd2.strapiapp.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'certain-strength-ad46524dd2.media.strapiapp.com',
+        pathname: '/**',
+      }
     ],
   },
 };
+
 
 export default nextConfig;

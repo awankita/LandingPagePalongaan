@@ -29,7 +29,7 @@ export default function AgendaSection() {
   const [articles, setArticles] = useState<Article[]>([]);
 
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/articles?populate=*&sort=date:desc&pagination[limit]=3`)
+    fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/articles?populate=*&sort=date:desc&pagination[limit]=3`)
       .then((res) => res.json())
       .then((data) => {
         if (data && data.data) {
@@ -43,10 +43,11 @@ export default function AgendaSection() {
               "",
             date: item.date || "",
             readTime: item.readtime || "",
-            imageSrc:
-              item.cover?.url
-                ? `http://localhost:1337${item.cover.url}`
-                : "/loading.png",
+            imageSrc: item.cover?.url
+              ? (item.cover.url.startsWith("http")
+                ? item.cover.url
+                : `${process.env.NEXT_PUBLIC_STRAPI_URL}${item.cover.url}`)
+              : "/loading.png",
           }));
           setArticles(mappedData);
         }

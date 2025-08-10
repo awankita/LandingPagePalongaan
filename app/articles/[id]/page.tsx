@@ -16,7 +16,9 @@ interface Article {
 }
 
 export default async function ArticleDetail({ params }: { params: { id: string } }) {
-  const res = await fetch(`http://localhost:1337/api/articles/${params.id}?populate=*`, {
+  const { id } = await params;
+
+  const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/articles/${id}?populate=*`, {
     cache: "no-store"
   });
 
@@ -36,13 +38,16 @@ export default async function ArticleDetail({ params }: { params: { id: string }
     date: item.date || "",
     readTime: item.readtime || "",
     imageSrc: item.cover?.url
-      ? `http://localhost:1337${item.cover.url}`
-      : "/loading.png",
-    medias:
-      item.medias?.map(
-        (media: { url: string }) =>
-          `http://localhost:1337${media.url}`
-      ) || [],
+              ? (item.cover.url.startsWith("http")
+                ? item.cover.url
+                : `${process.env.NEXT_PUBLIC_STRAPI_URL}${item.cover.url}`)
+              : "/loading.png",
+    medias: item.medias?.map((media: { url: string }) =>
+      media.url.startsWith("http")
+        ? media.url
+        : `${process.env.NEXT_PUBLIC_STRAPI_URL}${media.url}`
+    ) || [],
+
     content: item.content || [],
   };
 

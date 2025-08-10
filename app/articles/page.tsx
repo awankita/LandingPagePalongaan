@@ -20,7 +20,7 @@ export default function ArticlesPage() {
   const [visibleCount, setVisibleCount] = useState(3);
 
   useEffect(() => {
-    fetch("http://localhost:1337/api/articles?populate=*")
+    fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/articles?populate=*`)
       .then((res) => res.json())
       .then((data) => {
         if (data && data.data) {
@@ -34,10 +34,11 @@ export default function ArticlesPage() {
               "",
             date: item.date || "",
             readTime: item.readtime || "",
-            imageSrc:
-              item.cover?.url
-                ? `http://localhost:1337${item.cover.url}`
-                : "/loading.png",
+            imageSrc: item.cover?.url
+              ? (item.cover.url.startsWith("http")
+                ? item.cover.url
+                : `${process.env.NEXT_PUBLIC_STRAPI_URL}${item.cover.url}`)
+              : "/loading.png"
           }));
           setArticles(mappedData);
         }
