@@ -1,4 +1,23 @@
+"use client";
+
 export default function PetaSection() {
+  const handleDownload = () => {
+    const files = [
+      "/maps/Peta_Batas_Administrasi_Desa_Palongaan.pdf",
+      "/maps/Peta_Pemanfaatan_Lahan_Desa_Palongaan.pdf",
+      "/maps/Peta_Phototagging_Fasilitas_Umum_dan_Tempat_Wisata_Desa_Palongaan.pdf",
+    ];
+
+    files.forEach((file) => {
+      const link = document.createElement("a");
+      link.href = file;
+      link.download = file.split("/").pop()!;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  };
+
   return (
     <>
       <div className="text-center mt-10 md:mt-20 font-bold text-2xl md:text-4xl text-[#252524]">
@@ -7,9 +26,7 @@ export default function PetaSection() {
       <div className="text-center mx-4 md:mx-60 mt-3 md:mt-5 mb-6 md:mb-10 font-normal text-base md:text-xl text-[#585858]">
         <h4>
           Menyediakan informasi lokasi CCTV bertujuan untuk meningkatkan
-          keamanan dan kenyamanan masyarakat. Fitur ini membantu memantau lalu
-          lintas, memungkinkan pengguna melihat peta interaktif, daftar TV, dan
-          informasi detailnya untuk pemantauan yang lebih efektif.
+          keamanan dan kenyamanan masyarakat...
         </h4>
       </div>
 
@@ -26,9 +43,8 @@ export default function PetaSection() {
         </div>
       </div>
 
-      <a
-        href="/map.png"
-        download
+      <button
+        onClick={handleDownload}
         className="mx-auto flex items-center justify-center mt-10 px-6 py-3 font-semibold text-white rounded-[24px] transition duration-300 bg-gradient-to-r from-[#559334] to-[#47820C] hover:brightness-125"
         style={{
           height: "60px",
@@ -36,7 +52,7 @@ export default function PetaSection() {
         }}
       >
         Download PDF Peta
-      </a>
+      </button>
     </>
   );
 }
